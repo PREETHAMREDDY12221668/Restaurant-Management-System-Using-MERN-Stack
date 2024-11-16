@@ -17,7 +17,7 @@ function App() {
     <>
     
     <AuthProvider>
-      
+      <Navbar />
       <MainRoutes />
       <Footer />
     </AuthProvider></>
