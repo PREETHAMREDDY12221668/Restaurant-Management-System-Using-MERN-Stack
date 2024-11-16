@@ -44,7 +44,7 @@ const Homecontaint = () => {
     
     <>
     <InitialTransition />
-    <Navbar />
+    
     <motion.section exit={{ opacity: 0 }}>
       {/* Ensure InitialTransition component exists and the import path is correct */}
 

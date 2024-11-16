@@ -58,7 +58,7 @@ return(
             </div>
 
             <div className={styles.skipBtnDiv}>
-                <button className={styles.skipBtn} id="skipBtn" >Skip, Continue As Guest</button>
+                <button className={styles.skipBtn} id="skipBtn" onClick={navigate("/")}>Skip, Continue As Guest</button>
             </div>   
    
     </div>
