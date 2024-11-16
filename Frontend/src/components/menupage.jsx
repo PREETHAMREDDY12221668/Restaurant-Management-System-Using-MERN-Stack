@@ -171,7 +171,6 @@ const GroceryDetails = () => {
 
   return (
     <>
-    <Navbar />
      <Sidebar onCategorySelect={setSelectedCategory} className={styles.side} />
       <motion.div
         initial="hidden"

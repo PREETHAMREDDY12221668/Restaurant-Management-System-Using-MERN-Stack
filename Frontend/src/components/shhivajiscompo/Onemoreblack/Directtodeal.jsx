@@ -1,6 +1,5 @@
 import React from "react";
 import { useNavigate } from "react-router";
-import deleImage from "./DELE.png";
 import styles from "./Directtodeal.module.css";
 const Directtodeal = () => {
   const navigate = useNavigate()
@@ -25,7 +24,7 @@ const Directtodeal = () => {
           <div className={styles.carcomp}>
             <img
               className={styles.imgofcard}
-              src="https://images.pexels.com/photos/12737656/pexels-photo-12737656.jpeg?auto=compress&cs=tinysrgb&w=600"
+              src="https://images.unsplash.com/photo-1589302168068-964664d93dc0?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjR8fGJpcnlhbml8ZW58MHx8MHx8fDA%3D"
               alt=""
             />
             <h1 className={`${styles.offer} offer`}> 1 PC Free Double ka meetha</h1>
@@ -37,7 +36,7 @@ const Directtodeal = () => {
           <div className={styles.carcomp}>
             <img
               className={styles.imgofcard}
-              src="https://images.pexels.com/photos/28236327/pexels-photo-28236327/free-photo-of-pizza.jpeg?auto=compress&cs=tinysrgb&w=600"
+              src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OHx8aXRsaWFuJTIwcGl6emF8ZW58MHx8MHx8fDA%3D"
               alt=""
             />
             <h1 className={`${styles.offer} offer`}> 1 Free Cool Drink</h1>
@@ -49,7 +48,7 @@ const Directtodeal = () => {
           <div className={styles.carcomp}>
             <img
               className={styles.imgofcard}
-              src={deleImage}
+              src="https://images.unsplash.com/photo-1518281361980-b26bfd556770?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTJ8fGxpbWl0ZWQlMjB0aW1lfGVufDB8fDB8fHww"
               alt=""
             />
             <h1 className={`${styles.offer} offer`}>Free Delivery</h1>

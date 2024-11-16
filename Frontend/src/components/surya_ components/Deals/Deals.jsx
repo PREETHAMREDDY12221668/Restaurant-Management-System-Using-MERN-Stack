@@ -4,7 +4,6 @@ import Navbar from "../../shhivajiscompo/navbar/Navbar";
 export const Deals = () => {
   return (
     <>
-    <Navbar />
     <div className="address">
       <div className="banner">
         <div className="deals-image-text">DEALS & OFFERS</div>
@@ -20,13 +19,12 @@ export const Deals = () => {
 
       <div className="card">
         <img
-          src="https://orderserv-kfc-assets.yum.com/15895bb59f7b4bb588ee933f8cd5344a/images/offers/xl/CHKZINGER.jpg"
+          src="   https://images.unsplash.com/photo-1701579231349-d7459c40919d?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
           className="offers-menu-product-image"
           alt="offer" />
-        <h4 className="offers-deals-product-title">1 Pc free Chicken...</h4>
+        <h4 className="offers-deals-product-title">1 Double ka meetha...</h4>
         <h5 className="offers-deals-product-desc">
-          1 Pc free Chicken Zinger on a cart value of 399 or above on first
-          order. Only for registered users.
+          1 Pc Double ka meetha on a single peace biryani.
         </h5>
         <div className="hotncrispydiv">
           <button className="view-details-btn">View Details</button>

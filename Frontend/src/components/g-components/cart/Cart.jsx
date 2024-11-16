@@ -174,7 +174,6 @@ export default function Cart() {
 
   return (
     <>
-    <Navbar />
       <div className={styles.cdTop}>
         <div>
           <img
