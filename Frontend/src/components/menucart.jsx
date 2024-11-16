@@ -95,21 +95,23 @@ const CartButton = ({ item }) => {
   };
 
   return (
-    <div className="bt">
+    <div className="bt" >
       {count === 0 ? (
         <button className="addcart" onClick={handleBtn}>
           Add to Cart
         </button>
       ) : (
         <div className="btn-div">
-          <div style={{ display: "flex", gap: "10px", alignItems: "center" }}>
+          <div style={{ display: "flex", gap: "20px", alignItems: "center" }}>
             <button
               className="btn"
               style={{
                 padding: "10px",
                 fontSize: "20px",
-                width: "45px",
+                width: "50px",
+                height:"auto",
                 borderRadius: "50%",
+                border: "1px solid black"
               }}
               onClick={handleDec}
             >
@@ -121,8 +123,10 @@ const CartButton = ({ item }) => {
               style={{
                 padding: "10px",
                 fontSize: "20px",
-                width: "45px",
+                width: "50px",
+                height:"auto",
                 borderRadius: "50%",
+                border: "1px solid black"
               }}
               onClick={handleInc}
             >

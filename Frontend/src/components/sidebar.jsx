@@ -112,9 +112,14 @@
 // export default Sidebar;
 // Sidebar.js
 import React, { useState } from 'react';
-
+import { motion, spring } from "framer-motion";
 function Sidebar({ onCategorySelect }) {
   const [selectedCategory, setSelectedCategory] = useState(null);
+  
+  const cat_items={
+    hidden: { opacity: 0, x: -150 },
+    visible: { opacity: 1, x: 0 },
+  }
 
   const categories = {
     Soups: ['Tomato Soup', 'Mushroom Soup', 'Chicken Soup'],
@@ -134,6 +139,11 @@ function Sidebar({ onCategorySelect }) {
   };
 
   return (
+    <motion.div
+          initial="hidden"  // Initial animation state
+          animate="visible" // Animation state after component mounts
+          transition={{ staggerChildren: 0.5, duration: 0.6 ,type:spring,delay:0.6}} // Delays between items and duration of animation
+        >
     <div className="sidebar" style={sidebarStyles}>
       <img
         style={{ height: '30px', width: '50px', marginBottom: '-20px' }}
@@ -142,9 +152,11 @@ function Sidebar({ onCategorySelect }) {
       />
       <h5 style={{ marginTop: '10px', fontSize:'36px'}}>MENU</h5>
       {Object.keys(categories).map((category) => (
-        <p
+        <motion.p
           key={category}
           onClick={() => handleCategoryClick(category)}
+          variants={cat_items}
+          transition={{ duration: 0.4, ease: "easeInOut", type: spring }}
           style={{
             cursor: 'pointer',
             height:'60px',
@@ -152,21 +164,22 @@ function Sidebar({ onCategorySelect }) {
           }}
         >
           {category}
-        </p>
+        </motion.p>
       ))}
     </div>
+    </motion.div>
   );
 }
 
 const sidebarStyles = {
   display: 'flex',
   flexDirection: 'column',
+  justifycontent:'flex-start',
   width: '300px',
   textAlign: 'center',
   position: 'absolute',
   height: '100%',
-  backgroundColor: '#f8f8f8',
-  
+  backgroundColor: '#d7d7d7',
   boxShadow: '2px 0 5px rgba(0,0,0,0.1)',
 };
 

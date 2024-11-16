@@ -146,6 +146,8 @@ import { CartCard } from "../cartcard/CartCard";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { RemoveAll, getCartData } from "../../../redux/guddu/cartRedux/CartAction";
+import Navbar from "../../shhivajiscompo/navbar/Navbar";
+import logo from "./vecteezy_ai-generated-brown-paper-shopping-bag-png_42654724.png";
 
 export default function Cart() {
   const navigate = useNavigate();
@@ -172,6 +174,7 @@ export default function Cart() {
 
   return (
     <>
+    <Navbar />
       <div className={styles.cdTop}>
         <div>
           <img
@@ -191,10 +194,11 @@ export default function Cart() {
               Start Order
             </button>
           </div>
-          <div>
+          <div >
             <img
-              src="https://online.kfc.co.in/static/media/empty_cart.32f17a45.png"
-              alt="kfcCup"
+              src={logo}
+              alt="dd"
+              style={{width:'350px', height:'auto',transform: 'rotate(45deg)',paddingLeft:'60px',marginLeft:'70px'}}
             />
           </div>
         </div>

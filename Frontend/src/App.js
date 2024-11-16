@@ -1,13 +1,27 @@
+// App.js
 import "./App.css";
-import { MainRoutes } from "./Routes/MainRoutes";
-import {Route,Routes} from "react-router-dom"
-import { Final_page } from "./components/g-components/Final_Page/Final_page";
+import { useRoutes } from "react-router-dom";
+import { AuthProvider } from "./authContext";
+import MainRoutes from "./Routes/MainRoutes";
+import Register from "./components/m-components/firebaseVerification/register";
+import Login from "./components/m-components/firebaseVerification/login";
+import Navbar from "./components/shhivajiscompo/navbar/Navbar";
+import Footer from "./components/shhivajiscompo/footer/Footer";
+import InitialTransition from "./animations/intialTransition";
+import BackgroundZoom from "./animations/grainyFilter";
+
 
 function App() {
-  return <>
-  <MainRoutes />;
-  </>
-
+  
+  return (
+    <>
+    
+    <AuthProvider>
+      
+      <MainRoutes />
+      <Footer />
+    </AuthProvider></>
+  );
 }
 
 export default App;

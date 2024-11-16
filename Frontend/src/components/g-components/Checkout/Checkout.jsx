@@ -5,6 +5,8 @@ import { Popup } from "../paymentMethod/Popup";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { RemoveAll } from "../../../redux/guddu/cartRedux/CartAction";
+// import initiatePayment from "../payment/payment"
+
 
 export const Checkout = () => {
   const [payMth, setpayMth] = useState(false);
@@ -156,7 +158,7 @@ export const Checkout = () => {
             <p>₹6</p>
           </div>
           {showbtn ? (
-            <div id={styles.paybtn1} onClick={handleCheckout}>
+            <div id={styles.paybtn1} >
               <p>Continue to Payment</p>
               <p>{subtotal + 9 + 6}</p>
             </div>
@@ -167,7 +169,9 @@ export const Checkout = () => {
             </div>
           )}
         </div>
+        {/* <button onClick={initiatePayment}>Pay Now</button> */}
       </div>
+
     </>
   );
 };

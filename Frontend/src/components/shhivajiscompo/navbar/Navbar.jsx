@@ -69,7 +69,8 @@ import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import styles from "../navbar/Navbar.module.css";
 import Secblack from "../Secblack/Secblack";
-import ntechServices from './ntech-services.png';
+import logo from './7697984.png';
+import {motion } from 'framer-motion';
 
 const Navbar = () => { 
   const [signStatus, setSignStatus] = useState(0);
@@ -85,17 +86,41 @@ const Navbar = () => {
     setSignStatus(signStatusFromStorage);
   }, []); // Runs only once on mount
 
+  
+const topDown = {
+  initial: { y: -20, opacity: 0, filter: "blur(5px)"},
+  animate: {
+    y: 0,
+    opacity: 1,
+    transition: {
+      duration: 0.7,
+      ease: [0.6, -0.05, 0.01, 0.99],
+    },
+    filter: "blur(0px)"
+  },
+};
+
   return (
-    <>
-      <div className={styles.navpar}>
+    <><motion.div 
+    initial="initial"
+    animate="animate"
+    variants={topDown}
+    >
+      <motion.div 
+      initial="initial"
+      animate="animate"
+      variants={topDown}
+      className={styles.navbar}
+      >
         <div className={styles.bgcl}>
           <div className={styles.subpars}>
             <img 
               onClick={() => navigate("/")}
               className={styles.logo}
-              src={ntechServices}
+              src={logo}
               alt="Logo"
             />
+            <div onClick={() => navigate("/")} className={styles.fornavmenu}>Home</div>
             <div onClick={() => navigate("/menu")} className={styles.fornavmenu}>Menu</div>
             <div onClick={() => navigate("/deals")} className={styles.fornavmenu}>Deals</div>
           </div>
@@ -106,7 +131,7 @@ const Navbar = () => {
                 alt="Account Icon"
               />
             </div>
-            <div className={styles.forsignin} onClick={() => navigate("/Signin")}>
+            <div className={styles.forsignin} onClick={() => navigate("/login")}>
               {signStatus ? "Account" : "Sign in"}
             </div>
             <div className={styles.vl}></div>
@@ -118,13 +143,14 @@ const Navbar = () => {
                 src="https://images.ctfassets.net/wtodlh47qxpt/6qtBVFuno7pdwOQ9RIvYm9/d13e9b7242980972cf49beddde2cc295/bucket_cart_icon.svg"
                 alt="Cart Icon"
               /> */}
-              <div><i class="fa-solid fa-cart-shopping" ></i></div>
+              <div><i className="fa-solid fa-cart-shopping" ></i></div>
               <p id={styles.cartitems}>{items}</p>
             </div>
           </div>
         </div>
-      </div>
+      </motion.div>
       <Secblack/>
+      </motion.div>
     </>
   );
 };

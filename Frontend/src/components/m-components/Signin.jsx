@@ -3,6 +3,8 @@ import { useNavigate } from "react-router-dom";
 
 import styles from "./Signin.module.css";
 
+import Register from "./firebaseVerification/register";
+
 
 export const Signin =()=>{
 const navigator=useNavigate()
@@ -28,27 +30,25 @@ return(
         <div className={styles.logo}><img className={styles.logoimg} src="/ntech-services.png"
                  alt="noimg" /></div>
         <div className={styles.siocawp}>LET’S SIGN IN OR CREATE ACCOUNT WITH YOUR PHONE NUMBER!</div>
-
-       
-            <input  className={styles.phoneNumberId} id="phone" type="number" onChange={handlechange} placeholder="Phone Number*"  />
+            <Register />               
         <div className={styles.privacypolicy}>By “logging in to Kanishka Dhaba”, you agree to our 
-            <a href="https://online.kfc.co.in/privacyPolicy"><b> Privacy Policy </b></a>
+            <a href="" cls><b> Privacy Policy </b></a>
              and 
-             <a href="https://online.kfc.co.in/terms-and-conditions"><b> Terms & Conditions</b></a>
+             <a href=""><b> Terms & Conditions</b></a>
              .</div>
 
-             <div class={styles.btnDiv}>
-            <button id="btnSendCode" class={styles.btnSendCode} onClick={sendmecode} >Send Me a Code</button>
+             <div className={styles.btnDiv}>
+            
         </div> 
-        <div class={styles.orDiv}>
-                <div class={styles.orLeft}></div>
-                <div class={styles.orCenter}>or</div>
-                <div class={styles.orRight}></div>
+        <div className={styles.orDiv}>
+                <div className={styles.orLeft}></div>
+                <div className={styles.orCenter}>or</div>
+                <div className={styles.orRight}></div>
 
             </div>
 
-            <div class={styles.skipBtnDiv}>
-                <button class={styles.skipBtn} id="skipBtn" >Skip, Continue As Guest</button>
+            <div className={styles.skipBtnDiv}>
+                <button className={styles.skipBtn} id="skipBtn" >Skip, Continue As Guest</button>
             </div>   
    
     </div>

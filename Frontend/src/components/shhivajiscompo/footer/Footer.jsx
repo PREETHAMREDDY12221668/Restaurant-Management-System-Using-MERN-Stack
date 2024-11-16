@@ -2,7 +2,7 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import styles from "./Footer.module.css";
 import { FaInstagram ,FaFacebook,FaTwitter} from "react-icons/fa";
-import ntechServices from './ntech-services (1).png';
+import logo from './7697984.png';
 const Footer = () => {
   const navigate = useNavigate();
   const rowone = {
@@ -19,7 +19,7 @@ const Footer = () => {
       <div style={rowone}>
       <img
           style={{ marginTop: "-60px", width:'300px' }}
-          src={ntechServices}
+          src={logo}
           alt="dd"
           
       />

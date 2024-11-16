@@ -1,8 +1,11 @@
 import React from "react";
 import "./about.css";
+import Navbar from "../../shhivajiscompo/navbar/Navbar";
+
 export const About = () => {
   return (
     <div>
+      <Navbar />
       <div className="blackstrip">
         <p>OUR GOLDEN PAST</p>
         <p>KYC&nbsp;(KNOW YOUR CHICKEN)</p>
