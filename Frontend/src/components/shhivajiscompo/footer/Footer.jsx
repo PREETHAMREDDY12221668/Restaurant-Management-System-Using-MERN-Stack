@@ -1,6 +1,7 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import styles from "./Footer.module.css";
+
 import { FaInstagram ,FaFacebook,FaTwitter} from "react-icons/fa";
 import logo from './7697984.png';
 const Footer = () => {

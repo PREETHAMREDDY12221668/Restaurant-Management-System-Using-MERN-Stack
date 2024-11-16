@@ -1,43 +1,45 @@
-import Razorpay from "razorpay";
+import React from "react";
+import axios from "axios";
 
-const initiatePayment = async () => {
-  try {
-    // Call backend API to create an order
-    const response = await fetch("http://localhost:5000/api/create-order", {
-      method: "POST",
-    });
-    const orderData = await response.json();
+const PaytmPayment = () => {
+    const initiatePayment = async () => {
+        const paymentDetails = {
+            amount: "100.00", // Payment amount
+            email: "user@example.com", // Customer email
+            orderId: `ORDER_${Date.now()}`, // Unique order ID
+        };
 
-    // Initialize Razorpay Payment
-    const options = {
-      key: "your_key_id", // Replace with your Key ID
-      amount: orderData.amount,
-      currency: orderData.currency,
-      name: "Your App Name",
-      description: "Test Transaction",
-      image: "/logo.png", // Optional: Add your logo here
-      order_id: orderData.id,
-      handler: function (response) {
-        alert(`Payment successful! Payment ID: ${response.razorpay_payment_id}`);
-      },
-      prefill: {
-        name: "Your Customer Name",
-        email: "customer@example.com",
-        contact: "9999999999",
-      },
-      notes: {
-        address: "Your Address",
-      },
-      theme: {
-        color: "#3399cc",
-      },
+        const response = await axios.post(
+            "http://localhost:5000/api/payments/payment",
+            paymentDetails
+        );
+
+        const { url, params } = response.data;
+
+        // Submit form dynamically
+        const form = document.createElement("form");
+        form.action = url;
+        form.method = "POST";
+
+        for (const key in params) {
+            if (params.hasOwnProperty(key)) {
+                const input = document.createElement("input");
+                input.type = "hidden";
+                input.name = key;
+                input.value = JSON.stringify(params[key]);
+                form.appendChild(input);
+            }
+        }
+
+        document.body.appendChild(form);
+        form.submit();
     };
 
-    const rzp = new window.Razorpay(options);
-    rzp.open();
-  } catch (error) {
-    console.error("Payment initiation failed:", error);
-  }
+    return (
+        <button onClick={initiatePayment} className="btn">
+            Pay with Paytm
+        </button>
+    );
 };
 
-export default initiatePayment
+export default PaytmPayment;

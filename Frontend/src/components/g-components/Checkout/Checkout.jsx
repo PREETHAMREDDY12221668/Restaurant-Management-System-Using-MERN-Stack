@@ -169,9 +169,8 @@ export const Checkout = () => {
             </div>
           )}
         </div>
-        {/* <button onClick={initiatePayment}>Pay Now</button> */}
+        <button onClick={handleCheckout}>Pay Now</button>
       </div>
-
     </>
   );
 };
