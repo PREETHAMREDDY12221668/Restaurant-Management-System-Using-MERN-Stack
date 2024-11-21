@@ -138,7 +138,7 @@ export const Deals = () => {
   useEffect(() => {
     const fetchDeals = async () => {
       try {
-        const response = await fetch(`${apiUrl}/api/items`);
+        const response = await fetch(`${apiUrl}/api/deals`);
         if (!response.ok) {
           throw new Error(`HTTP error! Status: ${response.status}`);
         }
@@ -175,7 +175,7 @@ export const Deals = () => {
 
       <div className="deals-container">
         {loading ? (
-          <p className="loadingContainer"> <CardSkeleton cards={8}/></p>
+          <p className="loadingContainer"> <CardSkeleton cards={4}/></p>
         ) : deals.length > 0 ? (
           deals.map((deal) => (
             <div className="card" key={deal._id}>

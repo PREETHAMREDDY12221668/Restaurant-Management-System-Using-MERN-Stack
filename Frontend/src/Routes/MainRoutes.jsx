@@ -10,7 +10,6 @@ import { About } from "../components/surya_ components/About/About";
 import { Deals } from "../components/surya_ components/Deals/Deals";
 import GroceryDetails from "../components/menupage";
 import PageWrapper from "../animations/PageWrapper";
-import IndexPage from "../animations/intro";
 import { Signin } from "../components/m-components/Signin";
 import { Otp } from "../components/m-components/Otp";
 import UserProfile from "../components/m-components/account";
@@ -27,7 +26,6 @@ const MainRoutes = () => {
       <Route path="/about" element={<About />} />
       <Route path="/checkout" element={<Checkout />} />
       <Route path="/ordered" element={<Final_page />} />
-      <Route path="/fake" element={<IndexPage />} />
       <Route path="/login" element={<Otp />} />
       <Route path="/register" element={<Signin />} />
       <Route path="/account" element={<UserProfile />} />

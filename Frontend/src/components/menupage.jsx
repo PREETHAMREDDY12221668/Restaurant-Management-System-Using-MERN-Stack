@@ -4,13 +4,17 @@ import GroceryItem from "./menuitem";
 import Sidebar from "./sidebar";
 import styles from "./GroceryDetails.module.css";
 import { motion } from "framer-motion";
-import CardSkeleton from "./surya_ components/skeletonLoading/cardSkeleton"
+import CardSkeleton from "./surya_ components/skeletonLoading/cardSkeleton";
+import Skeleton from "react-loading-skeleton";
+import "react-loading-skeleton/dist/skeleton.css";
+
 const GroceryDetails = () => {
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [selectedCategory, setSelectedCategory] = useState(null);
   const [visibleCategories, setVisibleCategories] = useState({});
+  const [delayedItems, setDelayedItems] = useState({});
   const apiUrl = process.env.REACT_APP_BACKEND_URL;
 
   const categoryRefs = useRef({});
@@ -32,7 +36,7 @@ const GroceryDetails = () => {
         setTimeout(() => {
           setData(result.data); // Expecting 'data' as an array of category groups
           setLoading(false);
-        }, 2000);
+        }, 0);
       } catch (err) {
         setError(err.message);
         setLoading(false);
@@ -62,6 +66,14 @@ const GroceryDetails = () => {
               ...prev,
               [entry.target.dataset.category]: true,
             }));
+
+            // Delay the display of items for the category
+            setTimeout(() => {
+              setDelayedItems((prev) => ({
+                ...prev,
+                [entry.target.dataset.category]: true,
+              }));
+            }, 1500); // 1-second delay
           }
         });
       },
@@ -83,8 +95,6 @@ const GroceryDetails = () => {
     };
   }, [data]);
 
-  // Handle loading and error states
-  if (loading) return <CardSkeleton cards={4} />;
   if (error) return <p>Error: {error}</p>;
 
   return (
@@ -114,11 +124,15 @@ const GroceryDetails = () => {
               {visibleCategories[categoryGroup._id] ? (
                 categoryGroup.items.map((item) => (
                   <div key={item._id || item.id} className={styles.categoryItem}>
-                    <GroceryItem {...item} />
+                    {delayedItems[categoryGroup._id] ? (
+                      <GroceryItem {...item} />
+                    ) : (
+                      <CardSkeleton cards={1} />
+                    )}
                   </div>
                 ))
               ) : (
-                <CardSkeleton cards={9} />
+                <CardSkeleton cards={1} />
               )}
             </div>
           ))}
@@ -129,6 +143,7 @@ const GroceryDetails = () => {
 };
 
 export default GroceryDetails;
+
 
 // import React, { useEffect, useRef, useState } from "react";
 // import CartButton from "./menucart";

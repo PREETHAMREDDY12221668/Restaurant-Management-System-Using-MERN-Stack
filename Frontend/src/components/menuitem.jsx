@@ -59,6 +59,7 @@ import React, { useEffect, useState } from "react";
 import Skeleton from "react-loading-skeleton"; // Import skeleton loader
 import "react-loading-skeleton/dist/skeleton.css"; // Skeleton styles
 import CartButton from "./menucart";
+import { CartButton1 } from "./menucart";
 import { motion } from "framer-motion";
 import styles from './GroceryDetails.module.css';
 
@@ -83,24 +84,6 @@ const GroceryItem = ({ name, description, price, image, category, _id }) => {
     return () => clearTimeout(loadTimer); 
   }, []);
 
-  if (!isLoaded) {
-    // Render skeleton loader
-    return (
-      <div className={styles.grocery}>
-        <div className="upper">
-          <Skeleton
-            height={350}
-            width={"100%"}
-            style={{ borderRadius: "15px", marginBottom: "1rem" }}
-          />
-        </div>
-        <Skeleton height={25} width={"60%"} style={{ marginBottom: "0.5rem" }} />
-        <Skeleton height={20} width={"40%"} style={{ marginBottom: "0.5rem" }} />
-        <Skeleton height={20} width={"80%"} />
-        <Skeleton height={40} width={"100%"} style={{ marginTop: "1rem" }} />
-      </div>
-    );
-  }
 
   return (
     <motion.div
@@ -141,11 +124,13 @@ const GroceryItem = ({ name, description, price, image, category, _id }) => {
           </motion.p>
         </div>
       </div>
-      {isLoaded ? (
+      {/* {isLoaded ? (
         <CartButton item={item} />
       ) : (
         <Skeleton height={40} width={"100%"} style={{ marginTop: "1rem" }} />
-      )}
+      )} */}
+      <CartButton item={item} />
+      <CartButton1 item={item} />
     </motion.div>
   );
 };

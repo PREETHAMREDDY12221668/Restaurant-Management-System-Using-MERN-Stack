@@ -234,9 +234,21 @@ const Navbar = () => {
                   alt="Account Icon"
                 />
               </div>
-              <div
+              {/* <div
                 className={styles.forsignin}
                 onClick={() => navigate("/account")}
+              >
+                {signStatus ? "Account" : "Sign in"}
+              </div> */}
+              <div
+                className={styles.forsignin}
+                onClick={() => {
+                  if (signStatus) {
+                    navigate("/account");
+                  } else {
+                    navigate("/signin"); // Redirect to sign-in if not logged in
+                  }
+                }}
               >
                 {signStatus ? "Account" : "Sign in"}
               </div>
