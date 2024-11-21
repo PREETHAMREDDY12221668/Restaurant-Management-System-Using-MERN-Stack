@@ -4,6 +4,7 @@ import styles from "./Footer.module.css";
 
 import { FaInstagram ,FaFacebook,FaTwitter} from "react-icons/fa";
 import logo from './7697984.png';
+import find from './find.png';
 const Footer = () => {
   const navigate = useNavigate();
   const rowone = {
@@ -62,7 +63,7 @@ const Footer = () => {
         </div>
         <div className={styles.findstore}>
           <img
-            src="//images.ctfassets.net/wtodlh47qxpt/6qgKpWUOIsrIiazhk3cdmF/d60b4c20be69bab1f939bf33348b67e9/Find_KFC.svg"
+            src={find}
             alt=""
           />
           <a

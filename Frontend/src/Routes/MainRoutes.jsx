@@ -13,6 +13,7 @@ import PageWrapper from "../animations/PageWrapper";
 import IndexPage from "../animations/intro";
 import { Signin } from "../components/m-components/Signin";
 import { Otp } from "../components/m-components/Otp";
+import UserProfile from "../components/m-components/account";
 
 const MainRoutes = () => {
   return (
@@ -29,7 +30,7 @@ const MainRoutes = () => {
       <Route path="/fake" element={<IndexPage />} />
       <Route path="/login" element={<Otp />} />
       <Route path="/register" element={<Signin />} />
-      
+      <Route path="/account" element={<UserProfile />} />
 
     </Routes>
   );

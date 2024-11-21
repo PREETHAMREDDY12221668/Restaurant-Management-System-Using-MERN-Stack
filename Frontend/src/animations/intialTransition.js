@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import BackgroundZoom from "./grainyFilter";
 const blackBox = {
   initial: {
-    height: "100vh",
+    height: "100%",
     bottom: 0,
   },
   animate: {

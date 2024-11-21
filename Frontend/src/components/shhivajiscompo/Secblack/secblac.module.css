@@ -3,14 +3,19 @@
     justify-content: center;
     gap:20px;
     background-color: black;
-    height:68px;
+    height:auto;
     width: 100%;
-    flex-direction: row;
+    flex-direction: column;
     flex-wrap: nowrap;
     justify-content: center;
     align-content: center;
     align-items: center;
     margin-top: 100px;
+    z-index: 999;
+    position: relative;
+    padding: 20px;
+}
+.setblackmain{
 
 }
 .secblactext{

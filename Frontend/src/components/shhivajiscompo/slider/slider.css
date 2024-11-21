@@ -38,7 +38,7 @@
   .prev,
   .next {
     cursor: pointer;
-    z-index: 100;
+    z-index: 10;
     position: absolute;
     top: 50%;
     width: auto;

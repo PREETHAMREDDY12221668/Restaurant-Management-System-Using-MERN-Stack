@@ -45,7 +45,10 @@ const Homecontaint = () => {
     <>
     <InitialTransition />
     
-    <motion.section exit={{ opacity: 0 }}>
+    <motion.section
+      exit={{ opacity: 0 }}
+      className="z-0"
+    >
       {/* Ensure InitialTransition component exists and the import path is correct */}
 
       <motion.div

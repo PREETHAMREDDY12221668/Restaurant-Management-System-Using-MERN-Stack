@@ -121,4 +121,9 @@
   color: #e4002b;
   display: flex;
   align-items: center;
+  
+}
+.offerImg{
+  height: 15px;
+  margin-right: 8px;
 }

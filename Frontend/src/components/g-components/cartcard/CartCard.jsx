@@ -32,7 +32,7 @@ export const CartCard = (props) => {
         <img src={props.imgURL} alt="product image" />
       </div>
       <div id={styles.centerDiv}>
-        <p>{props.title}</p>
+        <p>{props.name}</p>
         <button onClick={removeOne}>Remove</button>
       </div>
       <div id={styles.priceandqty}>

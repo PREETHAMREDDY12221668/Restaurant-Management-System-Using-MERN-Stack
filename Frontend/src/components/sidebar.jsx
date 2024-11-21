@@ -181,6 +181,7 @@ const sidebarStyles = {
   height: '100%',
   backgroundColor: '#d7d7d7',
   boxShadow: '2px 0 5px rgba(0,0,0,0.1)',
+  zIndex:0
 };
 
 export default Sidebar;

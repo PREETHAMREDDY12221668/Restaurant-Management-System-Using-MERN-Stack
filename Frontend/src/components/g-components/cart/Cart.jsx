@@ -148,7 +148,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { RemoveAll, getCartData } from "../../../redux/guddu/cartRedux/CartAction";
 import Navbar from "../../shhivajiscompo/navbar/Navbar";
 import logo from "./vecteezy_ai-generated-brown-paper-shopping-bag-png_42654724.png";
-
+import offer from "./pngegg.png"
 export default function Cart() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
@@ -161,7 +161,7 @@ export default function Cart() {
 
   // Calculate subtotal
   const subtotal = cartData.reduce((acc, elem) => acc + elem.price * elem.qty, 0);
-
+  const GST=(subtotal*18)/100;
   // Load cart data on component mount
   useEffect(() => {
     dispatch(getCartData());
@@ -215,7 +215,7 @@ export default function Cart() {
           <div id={styles.subtotal}>
             <h1>{items}- ITEMS</h1>
             <div id={styles.offer}>
-              <img src="https://online.kfc.co.in/static/media/Offers_Coupon_Icon.72b94c41.svg" />
+              <img className={styles.offerImg} src={offer}/>
               Offer Apply promo code
             </div>
             <div className="">
@@ -225,7 +225,7 @@ export default function Cart() {
               </div>
               <div className={styles.singlediv}>
                 <p>GST</p>
-                <p>₹ 19</p>
+                <p>₹ {GST}</p>
               </div>
             </div>
             <div className={styles.bag_hope}>
@@ -236,7 +236,7 @@ export default function Cart() {
             </div>
             <div id={styles.checkoutbtn} onClick={() => navigate("/checkout")}>
               <p>Check Out</p>
-              <p>₹{subtotal + 19}</p>
+              <p>₹{subtotal + GST}</p>
             </div>
           </div>
         </div>

@@ -9,18 +9,21 @@ import Navbar from "./components/shhivajiscompo/navbar/Navbar";
 import Footer from "./components/shhivajiscompo/footer/Footer";
 import InitialTransition from "./animations/intialTransition";
 import BackgroundZoom from "./animations/grainyFilter";
+import { SkeletonTheme } from "react-loading-skeleton";
 
 
 function App() {
   
   return (
     <>
-    
+    <SkeletonTheme>
     <AuthProvider>
       <Navbar />
       <MainRoutes />
       <Footer />
-    </AuthProvider></>
+    </AuthProvider>
+    </SkeletonTheme>
+    </>
   );
 }
 
