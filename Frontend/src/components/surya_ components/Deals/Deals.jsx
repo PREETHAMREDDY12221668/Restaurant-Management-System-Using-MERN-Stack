@@ -130,6 +130,7 @@
 import React, { useEffect, useState } from "react";
 import "./deals.css";
 import CardSkeleton from "../skeletonLoading/cardSkeleton";
+const apiUrl = process.env.REACT_APP_BACKEND_URL;
 
 export const Deals = () => {
   const [deals, setDeals] = useState([]); // State to store deals
@@ -137,7 +138,7 @@ export const Deals = () => {
   useEffect(() => {
     const fetchDeals = async () => {
       try {
-        const response = await fetch("http://localhost:5000/api/deals");
+        const response = await fetch(`${apiUrl}/api/items`);
         if (!response.ok) {
           throw new Error(`HTTP error! Status: ${response.status}`);
         }
