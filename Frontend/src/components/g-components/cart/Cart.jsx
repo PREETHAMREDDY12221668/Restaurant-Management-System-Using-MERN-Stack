@@ -146,7 +146,7 @@ import { CartCard } from "../cartcard/CartCard";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { RemoveAll, getCartData } from "../../../redux/guddu/cartRedux/CartAction";
-import Navbar from "../../shhivajiscompo/navbar/Navbar";
+import Navbar from "../../p-components/navbar/Navbar";
 import logo from "./vecteezy_ai-generated-brown-paper-shopping-bag-png_42654724.png";
 import offer from "./pngegg.png"
 export default function Cart() {

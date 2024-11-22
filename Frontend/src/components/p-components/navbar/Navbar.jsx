@@ -27,7 +27,7 @@
 // //         <div  className={styles.subpars}>
 // //           <img onClick={()=>navigate("/")}
 // //             className={styles.logoofkfc}
-// //             src="Frontend/src/components/shhivajiscompo/navbar/ntech-services.png"
+// //             src="Frontend/src/components/p-components/navbar/ntech-services.png"
 // //             alt="ddd"
 // //           />
 // //           <div onClick={()=>navigate("/menu")} className={styles.fornavmenu}>
@@ -160,7 +160,7 @@ import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { getAuth, onAuthStateChanged } from "firebase/auth"; // Firebase auth
-import styles from "../navbar/Navbar.module.css";
+import styles from "./Navbar.module.css";
 import Secblack from "../Secblack/Secblack";
 import logo from "./7697984.png";
 import { motion } from "framer-motion";

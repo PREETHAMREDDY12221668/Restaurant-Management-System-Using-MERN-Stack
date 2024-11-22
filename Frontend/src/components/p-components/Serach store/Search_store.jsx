@@ -29,6 +29,7 @@ export const Search_store = ({ setactivePopup,address1, setaddress1 }) => {
           onChange={(e) => setaddress(e.target.value)}
           placeholder="Search by state, city or zip"
         />
+        
         <button className={styles.btnAdd} onClick={handleAdd}>Confirm</button>
       </div>
     </div>

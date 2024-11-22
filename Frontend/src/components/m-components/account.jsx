@@ -9,10 +9,10 @@ import Skeleton from "react-loading-skeleton";
 const UserProfile = () => {
   const [isEditing, setIsEditing] = useState(false);
   const [userDetails, setUserDetails] = useState({
-    name: "",
-    email: "",
-    phone: "123-456-7890",
-    address: "123 Main Street, Springfield, USA",
+    name: "kaishka Dhaba",
+    email: "kanishkadhaba78@gmail.com",
+    phone: "78422-42865",
+    address: "Mayuri Garden Lane, Revenue Colony, near R.E.C. Petrol Pump, Hanamkonda, Telangana 506004",
   });
   const [activeSection, setActiveSection] = useState("orders"); // Sidebar active section
   const [isLoggedIn, setIsLoggedIn] = useState(false); // To check user login status

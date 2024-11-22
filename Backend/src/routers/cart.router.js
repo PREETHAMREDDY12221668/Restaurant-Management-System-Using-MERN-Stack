@@ -45,9 +45,10 @@ router.post('/add-to-cart', async (req, res) => {
 router.put('/update-quantity/:id', async (req, res) => {
   try {
     const { id } = req.params;
+
     const { action } = req.body; // "increment" or "decrement"
 
-    const cartItem = await Cart.findById(id);
+    const cartItem = await Cart.findOne({ productId: id});
 
     if (!cartItem) {
       return res.status(404).json({ error: "Item not found." });
@@ -68,17 +69,5 @@ router.put('/update-quantity/:id', async (req, res) => {
     res.status(500).json({ error: "Internal Server Error" });
   }
 });
-
-// In your backend routes (e.g., order.routes.js)
-// orderHistory.router.js
-
-
-const OrderHistory = require("../models/orderHistory.model"); // Ensure path is correct
-
-
-module.exports = router;
-
-  
-  
 
 module.exports = router;

@@ -1,6 +1,6 @@
 // import React from "react";
 // import "./deals.css";
-// import Navbar from "../../shhivajiscompo/navbar/Navbar";
+// import Navbar from "../../p-components/navbar/Navbar";
 // export const Deals = () => {
 //   return (
 //     <>

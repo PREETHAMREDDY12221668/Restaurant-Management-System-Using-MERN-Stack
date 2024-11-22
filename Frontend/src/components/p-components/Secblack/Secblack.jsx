@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import styles from "../Secblack/secblac.module.css";
+import styles from "./secblac.module.css";
 import {Popup} from '../../g-components/paymentMethod/Popup'
 import { Search_store } from "../Serach store/Search_store";
 const Secblack = () => {

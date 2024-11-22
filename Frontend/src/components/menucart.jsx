@@ -100,7 +100,7 @@ export const CartButton1 = ({ item }) => {
 
 
 
-const CartButton = ({ item }) => {
+export const CartButton = ({ item }) => {
   const [count, setCount] = React.useState(0);
   const navigate = useNavigate();
   const auth = getAuth();
@@ -140,6 +140,7 @@ const CartButton = ({ item }) => {
 
   // Handle incrementing item quantity
   const handleInc = async () => {
+    
     const user = auth.currentUser;
 
     if (user) {
@@ -235,4 +236,144 @@ const CartButton = ({ item }) => {
   );
 };
 
-export default CartButton;
+
+
+
+
+const CartButton2 = ({ item }) => {
+  const [count, setCount] = React.useState(0);
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const auth = getAuth();
+
+  const handleBtn = async () => {
+    const user = auth.currentUser;
+
+    if (user) {
+      const { uid: userId } = user;
+      const { _id: productId, name, description, price, image, category } = item;
+
+      try {
+        const response = await axios.post("http://localhost:5000/api/cart/add-to-cart", {
+          name,
+          description,
+          price,
+          image,
+          category,
+          productId,
+          userId,
+        });
+
+        if (response.status === 201 || response.status === 200) {
+          setCount(1);
+          dispatch(addToCart(item)); // Dispatch Redux action
+          toast.success("Item added to cart!", { autoClose: 3000 });
+        }
+      } catch (error) {
+        console.error("Error adding item to cart:", error);
+        toast.error("Failed to add item to cart. Try again!", { autoClose: 3000 });
+      }
+    } else {
+      toast.warn("Please log in to add items to the cart!", { autoClose: 3000 });
+      navigate("/login");
+    }
+  };
+
+  const handleInc = async () => {
+    const user = auth.currentUser;
+
+    if (user) {
+      try {
+        const response = await axios.put(
+          `http://localhost:5000/api/cart/update-quantity/${item._id}`,
+          { action: "increment" }
+        );
+
+        if (response.status === 200) {
+          setCount(count + 1);
+          dispatch(IncQty(item._id)); // Dispatch Redux increment action
+          toast.success("Quantity updated!", { autoClose: 2000 });
+        }
+      } catch (error) {
+        console.error("Error incrementing item quantity:", error);
+        toast.error("Failed to update quantity. Try again!", { autoClose: 2000 });
+      }
+    }
+  };
+
+  const handleDec = async () => {
+    const user = auth.currentUser;
+
+    if (user) {
+      try {
+        if (count > 1) {
+          const response = await axios.put(
+            `http://localhost:5000/api/cart/update-quantity/${item._id}`,
+            { action: "decrement" }
+          );
+
+          if (response.status === 200) {
+            setCount(count - 1);
+            dispatch(DecQty(item._id)); // Dispatch Redux decrement action
+          }
+        } else if (count === 1) {
+          const response = await axios.delete(`http://localhost:5000/api/cart/${item._id}`);
+
+          if (response.status === 200) {
+            setCount(0);
+            dispatch({ type: "REM_ONE", payload: item._id }); // Dispatch remove action
+          }
+        }
+      } catch (error) {
+        console.error("Error decrementing item quantity:", error);
+        toast.error("Failed to update quantity. Try again!", { autoClose: 2000 });
+      }
+    }
+  };
+
+  return (
+    <div className="bt">
+      {count === 0 ? (
+        <button className="addcart" onClick={handleBtn}>
+          Add to Cart
+        </button>
+      ) : (
+        <div className="btn-div">
+          <div style={{ display: "flex", gap: "20px", alignItems: "center" }}>
+            <button
+              className="btn"
+              style={{
+                padding: "10px",
+                fontSize: "20px",
+                width: "50px",
+                height: "auto",
+                borderRadius: "50%",
+                border: "1px solid black",
+              }}
+              onClick={handleDec}
+            >
+              -
+            </button>
+            <p className="count-item">{count}</p>
+            <button
+              className="btn"
+              style={{
+                padding: "10px",
+                fontSize: "20px",
+                width: "50px",
+                height: "auto",
+                borderRadius: "50%",
+                border: "1px solid black",
+              }}
+              onClick={handleInc}
+            >
+              +
+            </button>
+          </div>
+        </div>
+      )}
+    </div>
+  );
+};
+
+export default CartButton2;

@@ -5,7 +5,7 @@ import { Route, Routes } from "react-router-dom";
 import Cart from "../components/g-components/cart/Cart";
 import { Checkout } from "../components/g-components/Checkout/Checkout";
 import { Final_page } from "../components/g-components/Final_Page/Final_page";
-import Homecontaint from "../components/shhivajiscompo/homecontaint/Homecontaint";
+import Homecontaint from "../components/p-components/homecontaint/Homecontaint";
 import { About } from "../components/surya_ components/About/About";
 import { Deals } from "../components/surya_ components/Deals/Deals";
 import GroceryDetails from "../components/menupage";

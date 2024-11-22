@@ -150,7 +150,7 @@ export default GroceryDetails;
 // import GroceryItem from "./menuitem";
 // import Sidebar from "./sidebar";
 // import styles from "./GroceryDetails.module.css";
-// import Navbar from "./shhivajiscompo/navbar/Navbar";
+// import Navbar from "./p-components/navbar/Navbar";
 // import { motion, spring } from "framer-motion";
 // import CardSkeleton from "./surya_ components/skeletonLoading/cardSkeleton";
 

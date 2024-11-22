@@ -59,7 +59,7 @@ import React, { useEffect, useState } from "react";
 import Skeleton from "react-loading-skeleton"; // Import skeleton loader
 import "react-loading-skeleton/dist/skeleton.css"; // Skeleton styles
 import CartButton from "./menucart";
-import { CartButton1 } from "./menucart";
+import CartButton2, { CartButton1 } from "./menucart";
 import { motion } from "framer-motion";
 import styles from './GroceryDetails.module.css';
 
@@ -129,8 +129,9 @@ const GroceryItem = ({ name, description, price, image, category, _id }) => {
       ) : (
         <Skeleton height={40} width={"100%"} style={{ marginTop: "1rem" }} />
       )} */}
-      <CartButton item={item} />
-      <CartButton1 item={item} />
+      {/* <CartButton item={item} />
+      <CartButton1 item={item} /> */}
+      <CartButton2 item={item} />
     </motion.div>
   );
 };
