@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Berkshire+Swash&family=Cute+Font&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
 .main{
     width: 100%;
     display: flex;
@@ -41,7 +42,16 @@
     font-size: 44px;
     line-height: 58px;
     margin-left: 30%;
-    margin-top: 0px;
     font-size: 40px;
     width: max-content;
+}
+.h2u{
+    width: max-content;
+    font-family: "Playfair Display", serif;
+    font-optical-sizing: auto;
+    font-weight: 500;
+    font-style: normal;
+    line-height: 32px;
+    margin-left: 30%;
+    font-size: 20px;
 }

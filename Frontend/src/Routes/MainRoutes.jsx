@@ -13,10 +13,13 @@ import PageWrapper from "../animations/PageWrapper";
 import { Signin } from "../components/m-components/Signin";
 import { Otp } from "../components/m-components/Otp";
 import UserProfile from "../components/m-components/account";
+import AdminDashboard  from "../components/m-components/admin/adminDashboard";
 
 const MainRoutes = () => {
+  const ADMIN_EMAIL = "preethamreddyyelamancha@gmail.com"; // Replace with your admin email
   return (
-    
+   
+
     <Routes>
       <Route path="/" element={<Homecontaint />} />
       <Route path="/deals" element={<Deals />} />
@@ -29,7 +32,15 @@ const MainRoutes = () => {
       <Route path="/login" element={<Otp />} />
       <Route path="/register" element={<Signin />} />
       <Route path="/account" element={<UserProfile />} />
-
+      {/* <Route
+        path="/admin"
+        element={
+          <ProtectedRoute allowedEmail={ADMIN_EMAIL}>
+            <AdminDashboard />
+          </ProtectedRoute>
+        }
+      /> */}
+      <Route path="/admin" element={<AdminDashboard />} />
     </Routes>
   );
 };

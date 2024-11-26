@@ -65,7 +65,7 @@ const InitialTransition = () => {
     <motion.div className="fixed top-0 left-0 w-full h-full z-[100] pointer-events-none">
         {/* Grainy Effect */}
         <motion.img
-            className="w-full h-full"
+            className="w-full \"
             initial="initial"
             animate="animate"
             variants={grain}
@@ -81,7 +81,7 @@ const InitialTransition = () => {
     </motion.div>
     
     <motion.div
-          className="absolute z-50 flex items-center justify-center w-full h-full bg-black"
+          className="fixed z-50 flex items-center justify-center w-full h-full bg-black"
           initial="initial"
           animate="animate"
           variants={blackBox}

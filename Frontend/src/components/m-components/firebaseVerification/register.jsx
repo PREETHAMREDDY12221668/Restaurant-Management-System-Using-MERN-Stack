@@ -66,7 +66,7 @@ const Register = () => {
     
     return (
         <>
-            {userLoggedIn && (<Navigate to={'/'} replace={true} />)}
+            {/* {userLoggedIn && (<Navigate to={'/'} replace={true} />)} */}
 
             <main className="w-full  flex self-center place-content-center place-items-center">
                 <div className="w-96 text-gray-600 space-y-5 p-4 shadow-xl border rounded-xl">

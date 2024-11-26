@@ -246,7 +246,7 @@ const Navbar = () => {
                   if (signStatus) {
                     navigate("/account");
                   } else {
-                    navigate("/signin"); // Redirect to sign-in if not logged in
+                    navigate("/login"); // Redirect to sign-in if not logged in
                   }
                 }}
               >

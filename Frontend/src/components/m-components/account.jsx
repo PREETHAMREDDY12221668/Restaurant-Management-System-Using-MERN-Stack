@@ -5,6 +5,8 @@ import { getAuth, onAuthStateChanged } from "firebase/auth"; // Firebase Auth im
 import { Otp } from "./Otp";
 import axios from "axios"; // Import Axios for making HTTP requests
 import Skeleton from "react-loading-skeleton";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const UserProfile = () => {
   const [isEditing, setIsEditing] = useState(false);
@@ -40,10 +42,19 @@ const UserProfile = () => {
     if (section === "logout") {
       const auth = getAuth();
       auth.signOut()
-        .then(() => {
-          alert("You have been logged out.");
-          setIsLoggedIn(false);
-        })
+      .then(() => {
+        toast.warning("You have been logged out.", {
+          position: "top-right",
+          autoClose: 3000, // Close after 3 seconds
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "colored", // Options: "light", "dark", "colored"
+        });
+        setIsLoggedIn(false);
+      })      
         .catch((error) => alert("Error logging out: " + error.message));
     } else {
       setActiveSection(section);
@@ -113,7 +124,7 @@ const UserProfile = () => {
               onClick={() => handleSectionChange(section.id)}
               className={`block w-full text-left px-4 py-2 rounded-lg text-black ${
                 activeSection === section.id
-                  ? "bg-red-500 text-red-600 font-bold"
+                  ? "bg-red-500 text-white-600 font-bold"
                   : "hover:bg-red-500"  
               }`}
             >
@@ -136,7 +147,7 @@ const UserProfile = () => {
             {activeSection}
           </h1>
           
-          <p className="text-gray-600 ">
+          <p className="text-gray-600 m-50px">
 
             {activeSection === "orders"
               ? "View your order history and manage orders."
@@ -178,7 +189,9 @@ const UserProfile = () => {
                           <p className="text-gray-500">{item.description}</p>
                           <p className="text-red-600 font-bold">₹{item.price}</p>
                           <p className="text-gray-500">Quantity: {item.quantity}</p>
+                          
                         </div>
+                        <p className="text-green-400 mt-15px ">Delverd</p>
                       </div>
                     ))}
                   </div>

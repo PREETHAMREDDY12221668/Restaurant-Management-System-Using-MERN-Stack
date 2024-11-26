@@ -70,4 +70,18 @@ router.put('/update-quantity/:id', async (req, res) => {
   }
 });
 
+router.get('/getAll', async (req, res) => {
+  try {
+    // Fetch all cart items for admin
+    const cartItems = await Cart.find(); // No filtering by userId
+    res.status(200).json(cartItems);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: "Internal Server Error" });
+  }
+});
+
+
+
+
 module.exports = router;

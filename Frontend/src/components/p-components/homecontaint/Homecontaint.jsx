@@ -4,7 +4,6 @@ import Welcome from "../welcome/Welcome";
 import Browsecat from "../browscat/Browsecat";
 import Directtodeal from "../Onemoreblack/Directtodeal";
 import Slider from "../slider/Slider";
-import Navbar from "../navbar/Navbar";
 import InitialTransition
  from "../../../animations/intialTransition";
 const content = {

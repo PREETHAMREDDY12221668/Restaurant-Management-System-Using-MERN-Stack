@@ -182,8 +182,8 @@ const Login = () => {
             clearTimeout(inactivityTimer); // Clear previous timer
         }
 
-        // Set a new timeout for automatic logout after 20 minutes of inactivity 1200000
-        setInactivityTimer(setTimeout(autoLogout, 1200000)); 
+        // Set a new timeout for automatic logout after 5 minutes of inactivity 1200000
+        setInactivityTimer(setTimeout(autoLogout, 30000)); 
     };
 
     // Use effect to add event listeners for user activity
@@ -206,6 +206,7 @@ const Login = () => {
             try {
                 await doSignInWithEmailAndPassword(email, password)
                 toast.success("Successfully signed in!");
+                Navigate("/");
             } catch (error) {
                 setErrorMessage(error.message || 'Failed to sign in');
                 toast.error(error.message || "Failed to sign in");

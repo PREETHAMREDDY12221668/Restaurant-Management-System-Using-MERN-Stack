@@ -58,8 +58,8 @@
 import React, { useEffect, useState } from "react";
 import Skeleton from "react-loading-skeleton"; // Import skeleton loader
 import "react-loading-skeleton/dist/skeleton.css"; // Skeleton styles
-import CartButton from "./menucart";
-import CartButton2, { CartButton1 } from "./menucart";
+
+import CartButton2, { CartButton1,CartButton } from "./menucart";
 import { motion } from "framer-motion";
 import styles from './GroceryDetails.module.css';
 
