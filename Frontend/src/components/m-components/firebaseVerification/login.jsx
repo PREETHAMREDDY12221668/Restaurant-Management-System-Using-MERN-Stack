@@ -152,7 +152,7 @@
 // export default Login
 // export default Login
 import React, { useState, useEffect } from 'react'
-import { Navigate, Link } from 'react-router-dom'
+import { useNavigate, Link } from 'react-router-dom'
 import { doSignInWithEmailAndPassword, doSignInWithGoogle } from '../../../firebase/auth'
 import { useAuth } from '../../../authContext'
 import { doSignOut } from '../../../firebase/auth'
@@ -169,7 +169,7 @@ const Login = () => {
     
     // Timeout variable to track inactivity
     const [inactivityTimer, setInactivityTimer] = useState(null)
-
+    const navigate= useNavigate();
     // Auto logout function
     const autoLogout = () => {
         doSignOut(); // Call sign out method to log the user out
@@ -206,7 +206,7 @@ const Login = () => {
             try {
                 await doSignInWithEmailAndPassword(email, password)
                 toast.success("Successfully signed in!");
-                Navigate("/");
+                navigate("/");
             } catch (error) {
                 setErrorMessage(error.message || 'Failed to sign in');
                 toast.error(error.message || "Failed to sign in");
