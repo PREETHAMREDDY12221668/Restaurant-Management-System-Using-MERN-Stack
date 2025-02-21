@@ -4,10 +4,10 @@
   }
   
   .slider-container {
-    height:650px;
+    
     width: 100%;
     /* position: relative; */
-    margin: auto;
+    
     overflow: hidden;
     object-fit: cover;
   }

@@ -5,16 +5,14 @@ import Sidebar from "./sidebar";
 import styles from "./GroceryDetails.module.css";
 import { motion } from "framer-motion";
 import CardSkeleton from "./surya_ components/skeletonLoading/cardSkeleton";
-import Skeleton from "react-loading-skeleton";
-import "react-loading-skeleton/dist/skeleton.css";
+
 
 const GroceryDetails = () => {
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [selectedCategory, setSelectedCategory] = useState(null);
-  const [visibleCategories, setVisibleCategories] = useState({});
-  const [delayedItems, setDelayedItems] = useState({});
+ 
   const apiUrl = process.env.REACT_APP_BACKEND_URL;
 
   const categoryRefs = useRef({});
@@ -32,7 +30,6 @@ const GroceryDetails = () => {
         if (!response.ok) throw new Error("Failed to fetch menu data");
 
         const result = await response.json();
-        // Simulate a delay for loading state
         setTimeout(() => {
           setData(result.data); // Expecting 'data' as an array of category groups
           setLoading(false);
@@ -56,44 +53,7 @@ const GroceryDetails = () => {
     }
   }, [selectedCategory]);
 
-  // Lazy load categories
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            setVisibleCategories((prev) => ({
-              ...prev,
-              [entry.target.dataset.category]: true,
-            }));
-
-            // Delay the display of items for the category
-            setTimeout(() => {
-              setDelayedItems((prev) => ({
-                ...prev,
-                [entry.target.dataset.category]: true,
-              }));
-            }, 1500); // 1-second delay
-          }
-        });
-      },
-      { rootMargin: "0px 0px 200px 0px" } // Load before fully visible
-    );
-
-    Object.keys(categoryRefs.current).forEach((categoryId) => {
-      if (categoryRefs.current[categoryId]) {
-        observer.observe(categoryRefs.current[categoryId]);
-      }
-    });
-
-    return () => {
-      Object.keys(categoryRefs.current).forEach((categoryId) => {
-        if (categoryRefs.current[categoryId]) {
-          observer.unobserve(categoryRefs.current[categoryId]);
-        }
-      });
-    };
-  }, [data]);
+  
 
   if (error) return <p>Error: {error}</p>;
 
@@ -116,33 +76,36 @@ const GroceryDetails = () => {
               <motion.h2
                 className={styles.categoryHeading}
                 variants={cat_heading}
+                initial="hidden"
+                animate="visible"
                 transition={{ duration: 0.6, ease: "easeInOut" }}
               >
                 {categoryGroup._id}
               </motion.h2>
-
-              {visibleCategories[categoryGroup._id] ? (
+              {loading ? (
+                <CardSkeleton cards={8} />
+              ) : (
                 categoryGroup.items.map((item) => (
-                  <div key={item._id || item.id} className={styles.categoryItem}>
-                    {delayedItems[categoryGroup._id] ? (
-                      <GroceryItem {...item} />
-                    ) : (
-                      <CardSkeleton cards={1} />
-                    )}
+                  <div
+                    key={item._id || item.id}
+                    className={styles.categoryItem}
+                    
+                  >
+                    <GroceryItem {...item} />
                   </div>
                 ))
-              ) : (
-                <CardSkeleton cards={1} />
               )}
             </div>
           ))}
         </div>
       </motion.div>
+      
     </>
   );
 };
 
 export default GroceryDetails;
+
 
 
 // import React, { useEffect, useRef, useState } from "react";

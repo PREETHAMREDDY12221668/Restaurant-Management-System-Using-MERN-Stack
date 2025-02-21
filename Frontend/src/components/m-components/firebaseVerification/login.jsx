@@ -183,7 +183,7 @@ const Login = () => {
         }
 
         // Set a new timeout for automatic logout after 5 minutes of inactivity 1200000
-        setInactivityTimer(setTimeout(autoLogout, 30000)); 
+        setInactivityTimer(setTimeout(autoLogout, 1200000)); 
     };
 
     // Use effect to add event listeners for user activity

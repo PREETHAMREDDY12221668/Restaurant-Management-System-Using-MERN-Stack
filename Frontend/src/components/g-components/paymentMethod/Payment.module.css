@@ -5,11 +5,18 @@
 #payMHead {
   display: flex;
   justify-content: space-between;
+  align-items: flex-end;
+  font-size: 36px;
+  font-weight: 500;
 }
 #payMHead button {
-  width: 35px;
-  height: 35px;
+  width: auto;
+  font: 100;
+  font-size: 16px;
+  padding: 15px;
   border: none;
+  color:#e4002b;
+  text-decoration: underline;
 }
 .centerdiv {
   height: 500px;
@@ -25,15 +32,25 @@
   border: solid gray 1px;
 }
 
-#payMbtn {
-  width: 300px;
-  border-radius: 20px;
-  border: none;
-  padding: 12px;
-  background-color: gray;
+#payMbtn1{
+  display: flex;
+  justify-content: space-between;
+  background-color: #e4002b;
   color: white;
-  margin: auto;
+  cursor: pointer;
+  padding: 5px 50px;
+  border-radius: 20px;
 }
+#payMbtn2{
+  display: flex;
+  justify-content: space-between;
+  background-color: #f0c8d0;
+  color: white;
+  cursor: not-allowed;
+  padding: 5px 50px;
+  border-radius: 20px;
+}
+
 #paybtndiv {
   width: fit-content;
   margin: auto;

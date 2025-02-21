@@ -113,9 +113,9 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import {
-  INC_QTY,
-  DEC_QTY,
-  REM_ONE,
+  IncQty,
+  DecQty,
+  RemoveOne,
 } from "../../../redux/guddu/cartRedux/CartAction";
 import styles from "./cartcard.module.css";
 
@@ -133,28 +133,31 @@ export const CartCard = (props) => {
 
   // Increment and Decrement quantity
   const qtyInc = () => {
-    dispatch(INC_QTY(props._id)); // Increment quantity in Redux
+    dispatch(IncQty(props._id)); // Increment quantity in Redux
   };
 
   const qtyDec = () => {
     if (qty > 1) {
-      dispatch(DEC_QTY(props._id)); // Decrement quantity in Redux
+      dispatch(DecQty(props._id)); // Decrement quantity in Redux
     }
   };
 
   // Remove one item from the cart
   const removeOne = () => {
-    dispatch(REM_ONE(props._id)); // Remove one item from the cart
+    dispatch(RemoveOne(props._id)); // Remove one item from the cart
   };
 
   return (
     <div id={styles.frame}>
       <div>
-        <img src={props.imgURL} alt="product image" />
+        <img src={props.image} alt="product image" />
       </div>
       <div id={styles.centerDiv}>
-        <p>{props.name}</p>
-        <button onClick={removeOne}>Remove</button>
+        <h1 style={{ fontSize: "35px", fontWeight:"500"}}>{props.name}</h1>
+        <p>{props.description}</p>
+        
+        
+        <button className={styles.defbutton} role="button" onClick={removeOne}>Remove</button>
       </div>
       <div id={styles.priceandqty}>
         <button className={styles.btn} onClick={qtyDec}>

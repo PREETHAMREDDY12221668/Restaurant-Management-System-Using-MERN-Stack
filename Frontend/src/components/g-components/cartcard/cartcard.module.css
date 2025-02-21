@@ -1,21 +1,31 @@
 #frame {
   /* border: solid red 1px; */
   display: flex;
-  padding: 5px;
+  gap: 15px;
+ 
+  justify-content: space-between;
+  width: 390px;
+  border-radius: 31px;
+  padding: 15px;
   width: 98%;
   background-color: #f8f7f5;
   margin: 15px 0px;
 }
 #centerDiv {
-  width: 390px;
+  
   margin-left: 15px;
+  align-self: center;
+  display: flex;
+  
+  align-items: flex-start;
+  gap: 15px;
+  flex-direction: column;
+  
 }
-#centerDiv button {
-  background-color: black;
-  color: white;
-}
+
 #frame div:first-child img {
-  height: 120px;
+ 
+  border-radius: 16px;
   width: 150px;
 }
 #priceandqty {
@@ -26,6 +36,7 @@
   width: 30px;
   height: 30px;
   border-radius: 50%;
+  
   /* padding-bottom: 35px; */
   border: solid black 1px;
   margin: 10px;
@@ -34,4 +45,82 @@
 .btn:hover {
   background-color: black;
   color: white;
+}
+.defbutton {
+  appearance: defbutton;
+  background-color: #000;
+  background-image: none;
+  border: 1px solid #000;
+  border-radius: 4px;
+  box-shadow: #fff 4px 4px 0 0,#000 4px 4px 0 1px;
+  box-sizing: border-box;
+  color: #fff;
+  cursor: pointer;
+  display: inline-block;
+  font-family: ITCAvantGardeStd-Bk,Arial,sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 20px;
+  margin: 0 5px 10px 0;
+  overflow: visible;
+  padding: 12px 40px;
+  text-align: center;
+  text-transform: none;
+  touch-action: manipulation;
+  user-select: none;
+  -webkit-user-select: none;
+  vertical-align: middle;
+  white-space: nowrap;
+}
+
+.defbutton:focus {
+  text-decoration: none;
+}
+
+.defbutton:hover {
+  text-decoration: none;
+}
+
+.defbutton:active {
+  box-shadow: rgba(0, 0, 0, .125) 0 3px 5px inset;
+  outline: 0;
+}
+
+.defbutton:not([disabled]):active {
+  box-shadow: #fff 2px 2px 0 0, #000 2px 2px 0 1px;
+  transform: translate(2px, 2px);
+}
+.defbutton-89 {
+  --b: 3px;   /* border thickness */
+  --s: .45em; /* size of the corner */
+  --color: #373B44;
+  
+  padding: calc(.5em + var(--s)) calc(.9em + var(--s));
+  color: var(--color);
+  --_p: var(--s);
+  background:
+    conic-gradient(from 90deg at var(--b) var(--b),#0000 90deg,var(--color) 0)
+    var(--_p) var(--_p)/calc(100% - var(--b) - 2*var(--_p)) calc(100% - var(--b) - 2*var(--_p));
+  transition: .3s linear, color 0s, background-color 0s;
+  outline: var(--b) solid #0000;
+  outline-offset: .6em;
+  font-size: 16px;
+
+  border: 0;
+
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+.defbutton-89:hover,
+.defbutton-89:focus-visible{
+  --_p: 0px;
+  outline-color: var(--color);
+  outline-offset: .05em;
+}
+
+.defbutton-89:active {
+  background: var(--color);
+  color: #fff;
 }

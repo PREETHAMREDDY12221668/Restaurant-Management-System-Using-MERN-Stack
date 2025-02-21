@@ -306,7 +306,7 @@ const CartButton2 = ({ item }) => {
 
     if (user) {
       try {
-        if (count > 1) {
+        if (count > 0) {
           const response = await axios.put(
             `http://localhost:5000/api/cart/update-quantity/${item._id}`,
             { action: "decrement" }
