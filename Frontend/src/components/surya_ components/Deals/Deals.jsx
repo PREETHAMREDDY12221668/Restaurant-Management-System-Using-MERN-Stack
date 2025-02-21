@@ -175,7 +175,7 @@ export const Deals = () => {
 
       <div className="deals-container">
         {loading ? (
-          <div className="loadingContainer"> <CardSkeleton cards={4}/></div>
+          <p className="loadingContainer"> <CardSkeleton cards={4}/></p>
         ) : deals.length > 0 ? (
           deals.map((deal) => (
             <div className="card" key={deal._id}>

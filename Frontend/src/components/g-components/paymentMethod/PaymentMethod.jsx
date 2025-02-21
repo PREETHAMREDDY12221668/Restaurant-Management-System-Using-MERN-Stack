@@ -5,8 +5,8 @@ export const PaymentMethod = (props) => {
   const [radioval,setradioval] = useState("")
 
   const handlechange=(e)=>{
-    console.log(e.target.value);
-    props.setpayType(e.target.value);
+console.log(e.target.value);
+props.setpayType(e.target.value)
   }
   return (
     <div id={styles.model}>

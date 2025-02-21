@@ -1,17 +1,13 @@
 .popup {
-    position: relative;
+    position: relative; /* Changed from fixed to relative */
     width: 100%;
-    background-color: rgba(0, 0, 0, 0.6);
+    background-color: rgba(0, 0, 0, 0.6); /* Semi-transparent background */
     z-index: 99;
     display: block;
     justify-content: center;
     align-items: center;
-    padding: 10px 0;
-    animation: dropdown 0.5s ease-in-out forwards;
-}
-
-.popup.hidden {
-    animation: dropup 0.5s ease-in-out forwards;
+    padding: 10px 0; /* Add padding to make space for dropdown effect */
+    animation: dropdown 0.3s ease-in-out; /* Smooth dropdown animation */
 }
 
 .popup_inner {
@@ -23,10 +19,10 @@
     z-index: 100;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     border-radius: 8px;
-    margin: 0 auto;
+    margin: 0 auto; /* Center horizontally */
 }
 
-/* Dropdown animation */
+/* Smooth dropdown animation */
 @keyframes dropdown {
     from {
         transform: translateY(-100%);
@@ -38,19 +34,7 @@
     }
 }
 
-/* Dropup (exit) animation */
-@keyframes dropup {
-    from {
-        transform: translateY(0);
-        opacity: 1;
-    }
-    to {
-        transform: translateY(-100%);
-        opacity: 0;
-    }
-}
-
 /* Push the content below */
 .content {
-    margin-top: 20px;
+    margin-top: 20px; /* Space below the popup */
 }

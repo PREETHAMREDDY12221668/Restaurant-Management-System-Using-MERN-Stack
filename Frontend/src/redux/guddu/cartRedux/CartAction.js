@@ -63,24 +63,24 @@
 //   };
 // };
 
-// export const IncQty = (_id) => {
+// export const IncQty = (itemId) => {
 //   return {
 //     type: INC_QTY,
-//     payload: _id, // Expecting MongoDB _id here
+//     payload: itemId, // Expecting MongoDB _id here
 //   };
 // };
 
-// export const DecQty = (_id) => {
+// export const DecQty = (itemId) => {
 //   return {
 //     type: DEC_QTY,
-//     payload: _id, // Use _id from MongoDB
+//     payload: itemId, // Use _id from MongoDB
 //   };
 // };
 
-// export const RemoveOne = (_id) => {
+// export const RemoveOne = (itemId) => {
 //   return {
 //     type: REM_ONE,
-//     payload: _id,
+//     payload: itemId,
 //   };
 // };
 
@@ -117,24 +117,24 @@ export const getCartData = () => {
   };
 };
 
-export const IncQty = (_id) => {
+export const IncQty = (itemId) => {
   return {
     type: INC_QTY,
-    payload: _id, // Expecting MongoDB _id here
+    payload: itemId, // Expecting MongoDB _id here
   };
 };
 
-export const DecQty = (_id) => {
+export const DecQty = (itemId) => {
   return {
     type: DEC_QTY,
-    payload: _id, // Use _id from MongoDB
+    payload: itemId, // Use _id from MongoDB
   };
 };
 
-export const RemoveOne = (_id) => {
+export const RemoveOne = (itemId) => {
   return {
     type: REM_ONE,
-    payload: _id,
+    payload: itemId,
   };
 };
 
@@ -145,10 +145,10 @@ export const RemoveAll = () => {
 };
 
 export const addToCart = (item) => {
-  const { name, price, _id,image ,description} = item; // Updated property names as needed
+  const { name, price, _id } = item; // Updated property names as needed
 
   return {
     type: ADD_TO_CART,
-    payload: { _id, name, price, qty: 1,image,description },
+    payload: { _id, name, price, qty: 1 },
   };
 };

@@ -34,24 +34,23 @@ const CardSkeleton = ({ cards = 1 }) => {
               margin: "20px",
               borderRadius: "35px",
               padding: "20px",
-              width: "350px",
+              width: "380px",
               display: "flex",
               flexDirection: "column",
-              
+              alignItems: "center",
             }}
           >
             {/* Image Skeleton */}
             <Skeleton
-              height={220}
-              width={320}
+              height={180}
+              width={340}
               style={{ borderRadius: "25px", marginBottom: "20px" }}
             />
 
             {/* Title Skeleton */}
             <Skeleton
               height={25}
-              width={260}
-
+              width="60%"
               style={{ marginBottom: "10px" }}
             />
 

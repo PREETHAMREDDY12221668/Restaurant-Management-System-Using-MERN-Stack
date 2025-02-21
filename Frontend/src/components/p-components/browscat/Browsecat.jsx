@@ -1,7 +1,6 @@
 import React from "react";
 import { useNavigate } from "react-router";
 import styles from "./browsecat.module.css";
-import { FaLongArrowAltRight } from "react-icons/fa";
 const Browsecat = () => {
   const navigate = useNavigate();
   return (
@@ -75,8 +74,11 @@ const Browsecat = () => {
           />
           <div className={styles.divs}>
             <p className={styles.cardnamesp}>View All Menu </p>
-            <a className={styles.arrow}><FaLongArrowAltRight /></a>
-              
+            <img
+              className={styles.arrow}
+              src="https://online.kfc.co.in/static/media/black_right_arrow.a801582c.svg"
+              alt=""
+            />
           </div>
         </div>
       </div>

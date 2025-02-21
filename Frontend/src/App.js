@@ -10,7 +10,6 @@ import Footer from "./components/p-components/footer/Footer";
 import InitialTransition from "./animations/intialTransition";
 import BackgroundZoom from "./animations/grainyFilter";
 import { SkeletonTheme } from "react-loading-skeleton";
-import FloatingMenuIcon from "./components/p-components/floatingIcon/floactingIcon";
 
 
 function App() {
@@ -22,7 +21,6 @@ function App() {
       <Navbar />
       <MainRoutes />
       <Footer />
-      <FloatingMenuIcon />
     </AuthProvider>
     </SkeletonTheme>
     </>

@@ -7,14 +7,13 @@ const Secblack = () => {
   const [address1, setaddress1]= useState("");
 
   useEffect(()=>{
-    let add = JSON.parse(localStorage.getItem("address"))
-    console.log(add)
-    setaddress1(add)
-      },[address1])
+let add = JSON.parse(localStorage.getItem("address"))
+console.log(add)
+setaddress1(add)
+  },[address1])
 
   return (
     <div className={styles.secblackmain}>
-      
       {!address1 ? (<>
         <h4 className={styles.secblactext}>
         LET'S ORDER FOR DELIVERY, PICK UP, OR DINE-IN
@@ -24,11 +23,9 @@ const Secblack = () => {
         {address1}
       </h4>)}
      
-      
       <Popup trigger = {activePopup}>
         <Search_store address1={address1} setaddress1={setaddress1} setactivePopup={setactivePopup}/>
       </Popup>
-      
     </div>
   );
 };
