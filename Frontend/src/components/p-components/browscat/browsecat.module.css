@@ -63,6 +63,7 @@
 }
 .cardname{
     font-weight: bold;
+    
     font-size:18px;
     padding-top: 15px;
     padding-bottom: 15px;
@@ -72,6 +73,7 @@
     font-weight: bold;
     margin-top:50px;
     font-size:18px; 
+    text-align: center;
 }
 .divs{
     display:flex;

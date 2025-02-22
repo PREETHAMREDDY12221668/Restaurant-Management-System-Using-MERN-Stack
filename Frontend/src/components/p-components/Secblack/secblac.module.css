@@ -16,11 +16,11 @@
     padding: 20px;
    
 }
-.setblackmain{
 
-}
 .secblactext{
     color: white;
+    display: flex;
+    flex-direction: row;
 }
 .secblackbut{
     background-color: #E71A41;

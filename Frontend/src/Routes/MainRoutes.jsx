@@ -14,6 +14,8 @@ import { Signin } from "../components/m-components/Signin";
 import { Otp } from "../components/m-components/Otp";
 import UserProfile from "../components/m-components/account";
 import AdminDashboard  from "../components/m-components/admin/adminDashboard";
+import NotFound from "../components/p-components/notfound/notFound.jsx";
+import PaymentMethod from "../components/g-components/paymentMethod/PaymentMethod"
 
 const MainRoutes = () => {
   const ADMIN_EMAIL = "preethamreddyyelamancha@gmail.com"; // Replace with your admin email
@@ -32,6 +34,7 @@ const MainRoutes = () => {
       <Route path="/login" element={<Otp />} />
       <Route path="/register" element={<Signin />} />
       <Route path="/account" element={<UserProfile />} />
+      {/* <Route path="/payment" element={<PaymentMethod/>} /> */}
       {/* <Route
         path="/admin"
         element={
@@ -41,6 +44,8 @@ const MainRoutes = () => {
         }
       /> */}
       <Route path="/admin" element={<AdminDashboard />} />
+      <Route path="/not" element={<NotFound />} />
+
     </Routes>
   );
 };

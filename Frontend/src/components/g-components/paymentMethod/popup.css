@@ -7,7 +7,11 @@
     justify-content: center;
     align-items: center;
     padding: 10px 0; /* Add padding to make space for dropdown effect */
-    animation: dropdown 0.3s ease-in-out; /* Smooth dropdown animation */
+    animation: dropdown 0.3s ease-in-out forwards; /* Smooth dropdown animation */
+}
+
+.popup.hidden {
+    animation: dropup 0.5s ease-in-out forwards;
 }
 
 .popup_inner {
@@ -31,6 +35,16 @@
     to {
         transform: translateY(0);
         opacity: 1;
+    }
+}
+@keyframes dropup {
+    from {
+        transform: translateY(0);
+        opacity: 1;
+    }
+    to {
+        transform: translateY(-100%);
+        opacity: 0;
     }
 }
 
