@@ -32,22 +32,25 @@ router.post('/webhook', (req, res) => {
     return res.json({ fulfillmentText: "Sorry, I couldn't process the date." });
   }
 });
-
 router.post("/webhook-res", async (req, res) => {
   try {
+      console.log("Webhook called. Request body:", JSON.stringify(req.body, null, 2));
+
       const intent = req.body.queryResult.intent.displayName;
-      if (intent === "make_reservation") {
-          const name = req.body.queryResult.parameters.name;
-          const phone = req.body.queryResult.parameters.phone;
-          const date = req.body.queryResult.parameters.date;
-          const time = req.body.queryResult.parameters.time;
-          const guests = req.body.queryResult.parameters.guests;
+      if (intent === "reservation") {
+          console.log("Intent recognized correctly");
+
+          const { name, phone, date, time, guests } = req.body.queryResult.parameters;
+          console.log(`Received parameters: Name=${name}, Phone=${phone}, Date=${date}, Time=${time}, Guests=${guests}`);
+
+          if (!name || !phone || !date || !time || !guests) {
+              return res.json({ fulfillmentText: "Some details are missing for the reservation." });
+          }
 
           // Save reservation to database
           const newReservation = new reservation({ name, phone, date, time, guests });
           await newReservation.save();
 
-          // Respond to the user
           return res.json({
               fulfillmentText: `✅ Your table for ${guests} is booked on ${date} at ${time}, ${name}. We’ll call you at ${phone} if needed.`,
           });
@@ -59,5 +62,6 @@ router.post("/webhook-res", async (req, res) => {
       res.json({ fulfillmentText: "Sorry, something went wrong while making the reservation." });
   }
 });
+
 
 module.exports = router;
