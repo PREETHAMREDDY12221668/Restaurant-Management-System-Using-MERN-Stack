@@ -105,7 +105,7 @@ router.post("/webhook-res", async (req, res) => {
       // Format Time (Ensuring `parse` is used for `HH:mm` format)
       const parsedTime = parse(time, "HH:mm", new Date());
       const formattedTime = format(parsedTime, "hh:mm a");
-
+      console.log(formattedDate,formattedTime)
       const newReservation = new Reservation({
         name,
         phone,
