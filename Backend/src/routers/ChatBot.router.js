@@ -98,10 +98,14 @@ router.post("/webhook-res", async (req, res) => {
           }
 
           // Save reservation to database
-          const newReservation = new reservation({ name, phone, date, time, guests });
+          const formattedDate = format(parseISO(rawDate), "MMMM d, yyyy");
+          // ✅ Convert Time to 12-Hour Format with AM/PM (e.g., 7:30 PM)
+          const formattedTime = format(parseISO(`2024-01-01T${rawTime}`), "hh:mm a");
+
+          const newReservation = new reservation({ name, phone, formattedDate, formattedTime, guests });
           await newReservation.save();
 
-           res.json(generateReservationResponse(name, guests, date, time));
+           res.json(generateReservationResponse(name, guests, formattedDate, formattedTime));
       }
 
       res.json({ fulfillmentText: "I didn't understand your request." });
