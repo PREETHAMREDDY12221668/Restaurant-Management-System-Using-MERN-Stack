@@ -52,8 +52,17 @@ router.post("/webhook-res", async (req, res) => {
           await newReservation.save();
 
           return res.json({
-              fulfillmentText: `✅ Your table for ${guests} is booked on ${date} at ${time}, ${name}. We’ll call you at ${phone} if needed.`,
-          });
+                fulfillmentText: `✅ Your table for ${guests} is booked on ${date} at ${time}, ${name}. We’ll call you at ${phone} if needed.`,
+                fulfillmentMessages: [
+                    {
+                        text: {
+                            text: [
+                                `✅ Your table for ${guests} is booked on ${date} at ${time}, ${name}. We’ll call you at ${phone} if needed.`
+                            ]
+                        }
+                    }
+                ]
+            });
       }
 
       res.json({ fulfillmentText: "I didn't understand your request." });
