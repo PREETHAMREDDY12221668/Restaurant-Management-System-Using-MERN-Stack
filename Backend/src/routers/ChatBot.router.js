@@ -117,6 +117,21 @@ router.post("/webhook-res", async (req, res) => {
 
       return res.json(generateReservationResponse(name, guests, formattedDate, formattedTime));
     }
+    else if (intent === 'Menu.Categories') {
+      try {
+          const apiResponse = await axios.get('https://restaurant-management-system-using-mern-lqpi.onrender.com/api/items/unique-categories');
+          
+          // Extract categories from the API response
+          const categories = apiResponse.data.data.join(', ');
+  
+          res.json({ fulfillmentText: `We offer: ${categories}. Which one would you like to explore?` });
+      } catch (error) {
+          console.error("Error fetching categories:", error);
+          res.json({ fulfillmentText: "Sorry, I couldn't fetch the categories. Please try later." });
+      }
+  }
+  
+
 
     return res.json({ fulfillmentText: "I didn't understand your request." });
   } catch (error) {
