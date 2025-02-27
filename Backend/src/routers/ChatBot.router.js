@@ -98,9 +98,9 @@ router.post("/webhook-res", async (req, res) => {
           }
 
           // Save reservation to database
-          const formattedDate = format(parseISO(rawDate), "MMMM d, yyyy");
+          const formattedDate = format(parseISO(date), "MMMM d, yyyy");
           // ✅ Convert Time to 12-Hour Format with AM/PM (e.g., 7:30 PM)
-          const formattedTime = format(parseISO(`2024-01-01T${rawTime}`), "hh:mm a");
+          const formattedTime = format(parseISO(`2024-01-01T${time}`), "hh:mm a");
 
           const newReservation = new reservation({ name, phone, formattedDate, formattedTime, guests });
           await newReservation.save();
