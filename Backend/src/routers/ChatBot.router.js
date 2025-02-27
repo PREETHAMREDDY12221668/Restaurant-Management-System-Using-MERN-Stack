@@ -4,6 +4,56 @@ const chrono = require('chrono-node'); // Correct import
 const reservation = require('../models/reservation.model');
 const router = express.Router();
 router.use(bodyParser.json());
+const generateReservationResponse = (name, guests, date, time) => {
+    return {
+        fulfillmentMessages: [
+            {
+                payload: {
+                    richContent: [
+                        [
+                            {
+                                "type": "info",
+                                "title": "🎉 Reservation Confirmed!",
+                                "subtitle": `Hey ${name}, your table for ${guests} guests is booked on ${date} at ${time}.`,
+                                "image": {
+                                    "src": {
+                                        "rawUrl": "https://example.com/reservation-success.jpg"
+                                    }
+                                },
+                                "actionLink": "https://example.com/my-reservations"
+                            },
+                            {
+                                "type": "divider"
+                            },
+                            {
+                                "type": "description",
+                                "title": "📍 Restaurant Location",
+                                "text": [
+                                    "📌 Address: 123 Food Street, New York, NY",
+                                    "📞 Contact: +1-234-567-8900"
+                                ]
+                            },
+                            {
+                                "type": "chips",
+                                "options": [
+                                    {
+                                        "text": "Modify Reservation"
+                                    },
+                                    {
+                                        "text": "Cancel Reservation"
+                                    },
+                                    {
+                                        "text": "View Menu 🍽️"
+                                    }
+                                ]
+                            }
+                        ]
+                    ]
+                }
+            }
+        ]
+    };
+};
 
 router.post('/webhook', (req, res) => {
   const userQuery = req.body.queryResult?.queryText; // Ensure safe access
@@ -51,18 +101,7 @@ router.post("/webhook-res", async (req, res) => {
           const newReservation = new reservation({ name, phone, date, time, guests });
           await newReservation.save();
 
-          return res.json({
-                fulfillmentText: `✅ Your table for ${guests} is booked on ${date} at ${time}, ${name}. We’ll call you at ${phone} if needed.`,
-                fulfillmentMessages: [
-                    {
-                        text: {
-                            text: [
-                                `✅ Your table for ${guests} is booked on ${date} at ${time}, ${name}. We’ll call you at ${phone} if needed.`
-                            ]
-                        }
-                    }
-                ]
-            });
+           res.json(generateReservationResponse(name, guests, date, time));
       }
 
       res.json({ fulfillmentText: "I didn't understand your request." });
