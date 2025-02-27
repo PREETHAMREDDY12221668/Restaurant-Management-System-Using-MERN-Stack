@@ -20,7 +20,7 @@ const generateReservationResponse = (name, guests, date, time) => {
                 subtitle: `Hey ${name}, your table for ${guests} guests is booked on ${date} at ${time}.`,
                 image: {
                   src: {
-                    rawUrl: "https://www.flaticon.com/free-icon/hombre_87235?term=suite+people&page=1&position=14&origin=search&related_id=87235",
+                    rawUrl: "https://example.com/reservation-success.jpg",
                   },
                 },
                 actionLink: "https://example.com/my-reservations",
