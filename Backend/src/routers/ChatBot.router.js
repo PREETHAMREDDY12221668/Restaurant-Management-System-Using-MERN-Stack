@@ -20,7 +20,7 @@ const generateReservationResponse = (name, guests, date, time) => {
                 subtitle: `Hey ${name}, your table for ${guests} guests is booked on ${date} at ${time}.`,
                 image: {
                   src: {
-                    rawUrl: "https://example.com/reservation-success.jpg",
+                    rawUrl: "https://www.flaticon.com/free-icon/hombre_87235?term=suite+people&page=1&position=14&origin=search&related_id=87235",
                   },
                 },
                 actionLink: "https://example.com/my-reservations",
@@ -29,11 +29,11 @@ const generateReservationResponse = (name, guests, date, time) => {
                 type: "divider",
               },
               {
-                type: "description",
+                type: "Chinese, South Indian, Multicuisine, North Indian",
                 title: "📍 Restaurant Location",
                 text: [
-                  "📌 Address: 123 Food Street, New York, NY",
-                  "📞 Contact: +1-234-567-8900",
+                  "📌 Address: Garden Lane, Revenue Colony, near R.E.C. Petrol Pump, Hanamkonda, Telangana 506004",
+                  "📞 Contact: +91-98494-28400",
                 ],
               },
               {
