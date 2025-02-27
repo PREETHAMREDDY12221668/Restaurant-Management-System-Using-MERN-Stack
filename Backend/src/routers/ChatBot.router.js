@@ -110,7 +110,7 @@ router.post("/webhook-res", async (req, res) => {
         name,
         phone,
         formattedDate,
-        formattedTime,
+        time,
         guests,
       });
       await newReservation.save();
