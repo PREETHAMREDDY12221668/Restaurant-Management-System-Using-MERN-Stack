@@ -28,7 +28,8 @@
     "styled-components": "^5.3.5",
     "tailwind": "^4.0.0",
     "ts-migrate": "^0.1.35",
-    "web-vitals": "^2.1.4"
+    "web-vitals": "^2.1.4",
+    "yocto-queue": "^1.1.1"
   },
   "scripts": {
     "start": "react-scripts start",
