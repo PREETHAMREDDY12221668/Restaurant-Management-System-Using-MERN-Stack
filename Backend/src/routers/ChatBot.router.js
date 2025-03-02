@@ -117,7 +117,7 @@ router.post("/webhook-res", async (req, res) => {
 
       return res.json(generateReservationResponse(name, guests, formattedDate, formattedTime));
     }
-    else if (intent === 'Menu.categories') {
+    else if (intent === 'Menu - categories') {
       try {
           const apiResponse = await axios.get('https://restaurant-management-system-using-mern-lqpi.onrender.com/api/items/unique-categories');
           
