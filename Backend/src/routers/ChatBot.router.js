@@ -126,7 +126,8 @@ router.post("/webhook-res", async (req, res) => {
             const apiResponse = await axios.get("https://restaurant-management-system-using-mern-lqpi.onrender.com/api/items/unique-categories");
 
             // Extract categories from the API response
-            const categories = apiResponse.data.data.map(category => `✨ ${category}`).join("\n");
+            const categories = apiResponse.data.map(item => `✨ ${item.category}`).join("\n");
+
 
             return res.json({ 
                 fulfillmentText: `Here's what we have on our menu:\n\n${categories}\n\n🍽️ What would you like to explore today?` 
