@@ -1,23 +1,47 @@
 const express = require('express');
 const Item = require('../models/items.model'); // Ensure path is correct
-
+const mongoose = require("mongoose");
 const router = express.Router();
+
+const db = mongoose.connection;
+const categoriesCollection = db.collection("categories");
+
+async function updateCategories() {
+  console.log("Updating categories...");
+  await categoriesCollection.deleteMany({});
+  await db.collection("items").aggregate([
+      { $group: { _id: "$category" } },
+      { $project: { _id: 0, category: "$_id" } },
+      { $out: "categories" }
+  ]);
+  console.log("Categories updated successfully!");
+}
+
+db.once("open", async () => {
+  console.log("Watching for category changes...");
+  const changeStream = db.collection("items").watch();
+
+  changeStream.on("change", async (change) => {
+      console.log("Database change detected:", change);
+      if (["insert", "update", "delete"].includes(change.operationType)) {
+          await updateCategories();
+      }
+  });
+});
 
 // GET all items grouped by category
 router.get('/unique-categories', async (req, res) => { 
   try {
-    // Get distinct category values from the "category" field of all items
-    const uniqueCategories = await Item.distinct('category');
-    
-    res.status(200).json({
-      success: true,
-      data: uniqueCategories, // Return unique categories
-    });
-  } catch (error) {
-    console.error('Error fetching unique categories:', error);
-    res.status(500).json({ success: false, message: 'Error fetching unique categories' });
-  }
+       
+        const categories = await categoriesCollection.find({}).toArray();
+        res.json(categories);
+    } catch (error) {
+        console.error("Error fetching categories:", error);
+        res.status(500).json({ error: "Internal Server Error" });
+    }
 });
+
+
 
 router.get('/', async (req, res) => {
   try {
