@@ -32,7 +32,6 @@ db.once("open", async () => {
 // GET all items grouped by category
 router.get('/unique-categories', async (req, res) => { 
   try {
-       
         const categories = await categoriesCollection.find({}).toArray();
         res.json(categories);
     } catch (error) {
