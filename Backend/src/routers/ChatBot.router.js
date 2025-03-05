@@ -66,7 +66,7 @@ const generateCategoryResponse=(categories)=>{
         payload:{
           richContent:[
             {
-              type:chips,
+              type:"chips",
               options: categories.map(category=>({
                 text:category,
               })),
