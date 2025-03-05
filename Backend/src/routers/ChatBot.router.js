@@ -59,7 +59,24 @@ const generateReservationResponse = (name, guests, date, time) => {
     ],
   };
 };
-
+const generateCategoryResponse=(categories)=>{
+  return{
+    fulfillmentMessages:[
+      {
+        payload:{
+          richContent:[
+            {
+              type:chips,
+              options: categories.map(category=>({
+                text:category,
+              })),
+            }
+          ]
+        }
+      }
+    ]
+  }
+}
 router.post("/webhook", (req, res) => {
   const userQuery = req.body.queryResult?.queryText;
 
@@ -129,9 +146,7 @@ router.post("/webhook-res", async (req, res) => {
             const categories = apiResponse.data.map(item => `✨ ${item.category}`).join("\n");
 
 
-            return res.json({ 
-                fulfillmentText: `Here's what we have on our menu:\n\n${categories}\n\n🍽️ What would you like to explore today?` 
-            });
+            return res.json(generateCategoryResponse(categories));
         } catch (error) {
             console.error("Error fetching categories:", error);
             return res.json({ 
