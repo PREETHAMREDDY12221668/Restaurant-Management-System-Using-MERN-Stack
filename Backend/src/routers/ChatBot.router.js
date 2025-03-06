@@ -65,6 +65,7 @@ const generateCategoryResponse=(categories)=>{
       {
         payload:{
           richContent:[
+            [
             {
               type: "chips",
                 options: categories.map(category => ({
@@ -72,11 +73,12 @@ const generateCategoryResponse=(categories)=>{
                 })),
             }
           ]
+          ]
         }
       }
     ]
-  }
-}
+  };
+};
 router.post("/webhook", (req, res) => {
   const userQuery = req.body.queryResult?.queryText;
 
