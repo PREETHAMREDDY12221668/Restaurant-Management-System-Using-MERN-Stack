@@ -66,10 +66,10 @@ const generateCategoryResponse=(categories)=>{
         payload:{
           richContent:[
             {
-              type:"chips",
-              options: categories.map(category=>({
-                text:category,
-              })),
+              type: "chips",
+                options: categories.map(category => ({
+                  text: `✨ ${category}`,
+                })),
             }
           ]
         }
@@ -145,6 +145,7 @@ router.post("/webhook-res", async (req, res) => {
             // Extract categories from the API response
             const categories = apiResponse.data.map(item => `✨ ${item.category}`).join("\n");
 
+            console.log("Fetched Categories:", categories);
 
             return res.json(generateCategoryResponse(categories));
         } catch (error) {
